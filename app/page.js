@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Services from "./components/Services";
+import Stats from "./components/Stats";
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
       </Box>
 
       <Services />
+      <Stats />
     </Box>
   );
 }
