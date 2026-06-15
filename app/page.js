@@ -16,6 +16,11 @@ export default function Home() {
         textAlign: "center",
         gap: 2,
         px: 2,
+        animation: "heroFade 1s ease-out",
+        "@keyframes heroFade": {
+          from: { opacity: 0, transform: "translateY(20px)" },
+          to: { opacity: 1, transform: "translateY(0)" },
+        },
       }}
     >
       <Typography variant="h2" component="h1">
