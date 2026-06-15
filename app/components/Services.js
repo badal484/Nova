@@ -1,15 +1,20 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
-const services = [
-  { title: "Web Design", description: "Beautiful, user-focused designs that convert." },
-  { title: "Front-End Development", description: "Fast, responsive websites built to last." },
-  { title: "Branding", description: "Memorable identities that make brands stand out." },
-];
-
 export default function Services() {
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/services")
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, []);
+
   return (
     <Box sx={{ py: 8, px: 2 }}>
       <Typography variant="h3" textAlign="center" sx={{ mb: 4 }}>
@@ -26,7 +31,7 @@ export default function Services() {
       >
         {services.map((service) => (
           <Card
-            key={service.title}
+            key={service.id}
             sx={{
               transition: "transform 0.2s, box-shadow 0.2s",
               "&:hover": { transform: "translateY(-6px)", boxShadow: 6 },
